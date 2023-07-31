@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import './App.css'
 import { Button, ButtonGroup, Grid, GridItem, Show } from '@chakra-ui/react'
+import NavBar from './components/NavBar'
 
 function App() {
   return (
@@ -11,7 +10,9 @@ function App() {
         <GridItem area='aside' bg='blue'>aside</GridItem>
       </Show>
      <GridItem area='main' bg='orange'>main</GridItem>
-     <GridItem area='nav' bg='red'>nav</GridItem>
+     <GridItem area='nav' >
+       <NavBar />
+     </GridItem>
    </Grid>
   )
 }
