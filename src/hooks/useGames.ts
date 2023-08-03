@@ -22,23 +22,28 @@ interface IGameResponse {
 const useGames = () => {
 	const [error, seterror] = useState('');
 	const [games, setGames] = useState<IGame[]>([]);
+	const [isLoading, setIsLoading] = useState(false);
+
 	let gameList: IGame[] = [];
 	useEffect(() => {
 		const controller = new AbortController();
+		setIsLoading(true);
 		apiClient
 			.get<IGameResponse>('/games', { signal: controller.signal })
 			.then((res) => {
 				setGames(res.data.results);
+				setIsLoading(false);
 			})
 			.catch((er) => {
 				if (er instanceof CanceledError) {
 					return;
 				}
 				seterror(er.message);
+				setIsLoading(false);
 			});
 		return () => controller.abort();
 	}, []);
-	return { games, error };
+	return { games, error, isLoading };
 };
 
 export default useGames;
