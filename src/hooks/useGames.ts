@@ -2,10 +2,17 @@ import { CanceledError } from 'axios';
 import { delay } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import apiClient from '../services/api-client';
+
+export interface IPlatform {
+	id: number;
+	slug: string;
+	name: string;
+}
 export interface IGame {
 	id: number;
 	name: string;
 	background_image: string;
+	parent_platforms: [{ platform: IPlatform }];
 }
 interface IGameResponse {
 	count: number;
