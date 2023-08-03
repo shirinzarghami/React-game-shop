@@ -23,7 +23,6 @@ const useGames = () => {
 	const [error, seterror] = useState('');
 	const [games, setGames] = useState<IGame[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
-
 	let gameList: IGame[] = [];
 	useEffect(() => {
 		const controller = new AbortController();
