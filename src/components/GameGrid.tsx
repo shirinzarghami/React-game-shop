@@ -11,7 +11,7 @@ const GameGrid = () => {
 		<>
 			{isLoading && (
 				<SimpleGrid
-					spacing={10}
+					spacing={3}
 					columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
 					padding='1rem'>
 					{skeletons.map((skeleton) => (
@@ -22,7 +22,7 @@ const GameGrid = () => {
 
 			{error && <Text>{error}</Text>}
 			<SimpleGrid
-				spacing={10}
+				spacing={3}
 				columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
 				padding='1rem'>
 				{data.map((data) => (

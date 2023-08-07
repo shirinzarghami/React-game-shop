@@ -9,9 +9,13 @@ function App() {
 			templateAreas={{
 				base: `"nav" "main"`,
 				lg: `"nav nav" "aside main"`,
+			}}
+			templateColumns={{
+				base: '1fr', // it means to get all of the space
+				lg: '200px 1fr',
 			}}>
-			<Show above='md'>
-				<GridItem area='aside'>
+			<Show above='lg'>
+				<GridItem area='aside' paddingX='5px'>
 					<GenraList></GenraList>
 				</GridItem>
 			</Show>
