@@ -13,9 +13,10 @@ import useGenres, { IGenre } from '../hooks/useGenres';
 
 interface Probs {
 	onSelectGenre: (Genre: IGenre) => void;
+	selectedGenre: IGenre | null;
 }
 
-const GenraList = ({ onSelectGenre }: Probs) => {
+const GenraList = ({ onSelectGenre, selectedGenre }: Probs) => {
 	const { data, isLoading, error } = useGenres();
 	if (isLoading) return <Spinner />;
 	if (error) return null;
@@ -30,6 +31,7 @@ const GenraList = ({ onSelectGenre }: Probs) => {
 							boxSize='32px'
 							borderRadius='10px'></Image>
 						<Button
+							fontWeight={selectedGenre?.id === genre.id ? 'bold' : 'normal'}
 							variant='link'
 							fontSize='lg'
 							onClick={() => onSelectGenre(genre)}>
